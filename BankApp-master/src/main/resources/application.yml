@@ -1,0 +1,17 @@
+server.port: 8989
+server.servlet.context-path: /bank-api
+
+spring.security.user.name: bankapp
+spring.security.user.password: changeit
+  
+  spring.jpa.hibernate.ddl-auto=none
+  spring.datasource.url=jdbc:mysql://localhost:3306/world
+  spring.datasource.username=root
+  spring.datasource.password=root
+  
+
+# Enabling H2 Console
+spring:
+  h2:
+    console:
+      enabled: true
