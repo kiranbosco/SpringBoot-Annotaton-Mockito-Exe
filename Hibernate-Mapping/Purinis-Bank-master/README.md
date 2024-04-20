@@ -50,11 +50,12 @@ spring-boot-starter-security
 spring-boot-starter-web
 spring-boot-devtools
 h2 - Inmemory database
+mysql-database
 lombok - to reduce boilerplate code
-springfox-swagger2
-springfox-swagger-ui
+springfox-swagger2 > disable
+springfox-swagger-ui  > disable
 spring-boot-starter-test
-spring-security-test
+spring-security-test  > disable
 
 ```
 
@@ -86,5 +87,5 @@ http://localhost:8989/bank-api/h2-console/
 
 ## Authors
 
-* **Shyam Bathina**
+* **Purini kiran kumar**
 
