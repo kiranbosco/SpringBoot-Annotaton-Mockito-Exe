@@ -32,4 +32,8 @@ public class CustomerController {
    public ResponseEntity<Object> updateCustomerDetails(@RequestBody CustomerDetails customerDetails, @PathVariable Long customerNumber) throws Exception{
        return this.bankingService.updateCustomer(customerDetails,customerNumber);
    }
+   @DeleteMapping(path = "/{customerNumber}")
+    public ResponseEntity<Object> deleteCustomerNumber(@PathVariable Long customerNumber){
+       return this.bankingService.deleteCustomer(customerNumber);
+   }
 }

@@ -1,5 +1,4 @@
 package com.coding.exercise.bankapp.service;
-
 import com.coding.exercise.bankapp.domain.AccountInformation;
 import com.coding.exercise.bankapp.domain.CustomerDetails;
 import com.coding.exercise.bankapp.domain.TransactionDetails;
@@ -82,55 +81,62 @@ public class BankingServiceImpl implements BankingService {
 
     @Override
     public ResponseEntity<Object> updateCustomer(CustomerDetails customerDetails, Long customerNumber) {
-//call the repository
-        Optional<Customer> manageCustomerEntityOpt =  this.customerRepository.findByCustomerNumber(customerNumber);
-        // call the service
-        Customer unmanageCustomerEntity =  this.bankingServiceHelper.convertoCustomerEntity(customerDetails);
-        // check if the customer is available or not?
-        if(manageCustomerEntityOpt.isPresent()){
-            Customer manageCustomerEntity = manageCustomerEntityOpt.get();
-
-            //update the service
-            if(Optional.ofNullable(unmanageCustomerEntity.getContactDetails()).isPresent()){
-                Contact manageContact = manageCustomerEntity.getContactDetails();
-                if(manageContact!=null){
-                    manageContact.setEmailId(manageCustomerEntity.getContactDetails().getEmailId());
-                    manageContact.setHomePhone(manageCustomerEntity.getContactDetails().getHomePhone());
-                    manageContact.setWorkPhone(manageCustomerEntity.getContactDetails().getWorkPhone());
+        //call the repository if customer number is available or not
+        Optional<Customer> manageCustomerEntityRepoOpt =  this.customerRepository.findByCustomerNumber(customerNumber);
+//call the service class to get the customer information
+        Customer unmanageCustomerEntity = this.bankingServiceHelper.convertoCustomerEntity(customerDetails);
+// check the repo if customer is available or not here?
+        if(manageCustomerEntityRepoOpt.isPresent()){
+            Customer manageCustomerEntity = manageCustomerEntityRepoOpt.get();
+            //if yes update the customer details.
+            if(Optional.ofNullable(manageCustomerEntity.getContactDetails()).isPresent()){
+                Contact manageContacts = unmanageCustomerEntity.getContactDetails();
+                if(manageContacts!=null){
+                    manageContacts.setWorkPhone(manageCustomerEntity.getContactDetails().getWorkPhone());
+                    manageContacts.setEmailId(manageCustomerEntity.getContactDetails().getHomePhone());
+                    manageContacts.setWorkPhone(manageCustomerEntity.getContactDetails().getWorkPhone());
                 }
                 else {
                     manageCustomerEntity.setContactDetails(unmanageCustomerEntity.getContactDetails());
                 }
-                if(Optional.ofNullable(unmanageCustomerEntity.getCustomerAddress()).isPresent()){
-                    Address manageAddress = manageCustomerEntity.getCustomerAddress();
-                    if(manageAddress!=null){
-                        manageAddress.setCountry(manageCustomerEntity.getCustomerAddress().getCountry());
-                        manageAddress.setCity(manageCustomerEntity.getCustomerAddress().getCity());
-                        manageAddress.setZip(manageCustomerEntity.getCustomerAddress().getZip());
-                        manageAddress.setAddress1(manageCustomerEntity.getCustomerAddress().getAddress1());
-                        manageAddress.setAddress2(manageCustomerEntity.getCustomerAddress().getAddress2());
-                        manageAddress.setState(manageCustomerEntity.getCustomerAddress().getState());
+                if(Optional.ofNullable(manageCustomerEntity.getCustomerAddress()).isPresent()){
+                    Address address = manageCustomerEntity.getCustomerAddress();
+                    if(address!=null){
+                        address.setState(manageCustomerEntity.getCustomerAddress().getState());
+                        address.setCity(manageCustomerEntity.getCustomerAddress().getCity());
+                        address.setAddress2(manageCustomerEntity.getCustomerAddress().getAddress2());
+                        address.setAddress1(manageCustomerEntity.getCustomerAddress().getAddress1());
+                        address.setCountry(manageCustomerEntity.getCustomerAddress().getCountry());
+                        address.setZip(manageCustomerEntity.getCustomerAddress().getZip());
                     }
                     else {
                         manageCustomerEntity.setCustomerAddress(unmanageCustomerEntity.getCustomerAddress());
                     }
-                    manageCustomerEntity.setStatus(unmanageCustomerEntity.getStatus());
-                    manageCustomerEntity.setLastName(unmanageCustomerEntity.getLastName());
                     manageCustomerEntity.setFirstName(unmanageCustomerEntity.getFirstName());
                     manageCustomerEntity.setLastName(unmanageCustomerEntity.getLastName());
-                    manageCustomerEntity.setCreateDateTime(new Date());
-                    this.customerRepository.save(manageCustomerEntity);
+                    manageCustomerEntity.setMiddleName(unmanageCustomerEntity.getMiddleName());
+                    manageCustomerEntity.setAdhar_number(unmanageCustomerEntity.getAdhar_number());
+                    manageCustomerEntity.setStatus(unmanageCustomerEntity.getStatus());
+                    manageCustomerEntity.setUpdateDateTime(unmanageCustomerEntity.getUpdateDateTime());
+                    customerRepository.save(manageCustomerEntity);
                 }
+                return ResponseEntity.status(HttpStatus.OK).body("Customer details has been updated..!");
             }
-            return ResponseEntity.status(HttpStatus.OK).body("Customer details updated..!");
-
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Customer number "+ customerDetails + "Not found");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Customer is not available" + customerDetails);
     }
-
     @Override
     public ResponseEntity<Object> deleteCustomer(Long customerNumber) {
-        return null;
+        //find if the customer is available or not?
+      Optional<Customer> deleteCustomer =  this.customerRepository.findByCustomerNumber(customerNumber);
+      if(!deleteCustomer.isPresent()){
+          throw new RuntimeException("Customer is not available");
+      }
+      else {
+          Customer customerInfor = deleteCustomer.get();
+          this.customerRepository.delete(customerInfor);
+      }
+        return ResponseEntity.status(HttpStatus.OK).body("Customer has been successfully deleted..!");
     }
 
     @Override
