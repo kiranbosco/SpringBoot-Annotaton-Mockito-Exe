@@ -1,14 +1,15 @@
-package com.purinis.BankingTransaction.service;
+package com.purinisBanking.PurinisBankingApplication.service;
 
-import com.purinis.BankingTransaction.domain.AccountInformation;
-import com.purinis.BankingTransaction.domain.CustomerDetails;
-import com.purinis.BankingTransaction.domain.TransactionDetails;
-import com.purinis.BankingTransaction.domain.TransferDetails;
+import com.purinisBanking.PurinisBankingApplication.domain.AccountInformation;
+import com.purinisBanking.PurinisBankingApplication.domain.CustomerDetails;
+
+import com.purinisBanking.PurinisBankingApplication.domain.TransactionDetails;
+import com.purinisBanking.PurinisBankingApplication.domain.TransferDetails;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-public interface CustomerService {
+public interface CustomerService  {
 
     public List<CustomerDetails> findAll();
 
@@ -27,4 +28,5 @@ public interface CustomerService {
     public ResponseEntity<Object> transferDetails(TransferDetails transferDetails, Long customerNumber);
 
     public List<TransactionDetails> findTransactionsByAccountNumber(Long accountNumber);
+
 }

@@ -1,10 +1,11 @@
-package com.purinis.BankingTransaction.model;
+package com.banking.BankingTransaction.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.util.Date;
 import java.util.UUID;
 
@@ -13,19 +14,15 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Transaction {
+public class CustomerAccountXRef {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name="TX_ID")
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name="CUST_ACC_XREF_ID")
     private UUID id;
 
     private Long accountNumber;
 
-    @Temporal(TemporalType.TIME)
-    private Date txDateTime;
+    private Long customerNumber;
 
-    private String txType;
-
-    private Double txAmount;
 }

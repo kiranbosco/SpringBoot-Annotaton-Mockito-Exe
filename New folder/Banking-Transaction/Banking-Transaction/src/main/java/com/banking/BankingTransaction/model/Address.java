@@ -1,4 +1,4 @@
-package com.purinis.BankingTransaction.model;
+package com.banking.BankingTransaction.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,26 +1,22 @@
 package com.purinis.BankingTransaction.service;
-
 import com.purinis.BankingTransaction.domain.AccountInformation;
 import com.purinis.BankingTransaction.domain.CustomerDetails;
 import com.purinis.BankingTransaction.domain.TransactionDetails;
 import com.purinis.BankingTransaction.domain.TransferDetails;
-import com.purinis.BankingTransaction.model.Customer;
 import com.purinis.BankingTransaction.repository.AccountRepository;
 import com.purinis.BankingTransaction.repository.CustomerAccountXRefRepository;
 import com.purinis.BankingTransaction.repository.CustomerRepository;
 import com.purinis.BankingTransaction.repository.TransactionRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
-
 @Service
-public class CustomerServiceImpl implements CustomerService{
+@Transactional
+public class BankingServiceImpl implements CustomerService {
+
     @Autowired
     private CustomerRepository customerRepository;
     @Autowired
@@ -32,24 +28,18 @@ public class CustomerServiceImpl implements CustomerService{
     @Autowired
     private BankingServiceHelper bankingServiceHelper;
 
-    public CustomerServiceImpl(CustomerRepository repository) {
+    public BankingServiceImpl(CustomerRepository repository) {
         this.customerRepository=repository;
     }
 
+
     @Override
-    public List<CustomerDetails> getAllCustomerDetails() {
-        List<CustomerDetails> customerDetails = new ArrayList<>();
-        Iterable<Customer> customerList = this.customerRepository.findAll();
-        customerList.forEach((customer -> {
-            customerDetails.add(this.bankingServiceHelper.convertToCustomerDomain(customer));
-        }));
-        return customerDetails;
+    public List<CustomerDetails> findAll() {
+        return List.of();
     }
 
     @Override
-    public ResponseEntity<Object> addCustomer(CustomerDetails customerDetails) throws Exception {
-
-
+    public ResponseEntity<Object> addCustomer(CustomerDetails customerDetails) {
         return null;
     }
 

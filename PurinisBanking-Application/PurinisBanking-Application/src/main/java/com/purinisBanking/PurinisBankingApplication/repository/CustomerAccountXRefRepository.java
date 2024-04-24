@@ -1,10 +1,11 @@
-package com.purinis.BankingTransaction.repository;
+package com.purinisBanking.PurinisBankingApplication.repository;
 
-import com.purinis.BankingTransaction.model.CustomerAccountXRef;
+
+import com.purinisBanking.PurinisBankingApplication.model.CustomerAccountXRef;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
 public interface CustomerAccountXRefRepository extends CrudRepository<CustomerAccountXRef, String> {
+
 }

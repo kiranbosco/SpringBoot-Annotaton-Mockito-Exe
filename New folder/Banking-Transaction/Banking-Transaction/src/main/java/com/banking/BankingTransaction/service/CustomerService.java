@@ -1,9 +1,9 @@
-package com.purinis.BankingTransaction.service;
+package com.banking.BankingTransaction.service;
 
-import com.purinis.BankingTransaction.domain.AccountInformation;
-import com.purinis.BankingTransaction.domain.CustomerDetails;
-import com.purinis.BankingTransaction.domain.TransactionDetails;
-import com.purinis.BankingTransaction.domain.TransferDetails;
+import com.banking.BankingTransaction.domain.AccountInformation;
+import com.banking.BankingTransaction.domain.CustomerDetails;
+import com.banking.BankingTransaction.domain.TransactionDetails;
+import com.banking.BankingTransaction.domain.TransferDetails;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;

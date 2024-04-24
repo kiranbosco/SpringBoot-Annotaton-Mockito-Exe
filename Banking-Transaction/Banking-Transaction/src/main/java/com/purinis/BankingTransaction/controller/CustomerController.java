@@ -1,14 +1,14 @@
-package com.purinis.BankingTransaction.domain.controller;
+package com.purinis.BankingTransaction.controller;
 
 
 
 import com.purinis.BankingTransaction.domain.CustomerDetails;
 import com.purinis.BankingTransaction.service.CustomerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Objects;
 
 @RestController
 @RequestMapping("customers")
@@ -18,11 +18,6 @@ public class CustomerController {
 
     public CustomerController(CustomerServiceImpl customerService){
         this.customerService=customerService;
-    }
-
-    @GetMapping("all")
-    public List<CustomerDetails> getALLCustomerData(){
-        return  this.customerService.getAllCustomerDetails();
     }
 
 }

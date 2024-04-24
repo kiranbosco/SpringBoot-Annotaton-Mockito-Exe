@@ -1,7 +1,8 @@
-package com.purinis.BankingTransaction.model;
+package com.banking.BankingTransaction.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,6 +30,7 @@ public class Customer {
 
     private Long customerNumber;
 
+    @NotNull(message = "Status should not null")
     private String status;
 
     @ManyToOne(cascade=CascadeType.ALL)
