@@ -20,11 +20,5 @@ public interface CustomerService {
 
     public ResponseEntity<Object> deleteCustomer(Long customerNumber) ;
 
-    public ResponseEntity<Object> findByAccountNumber(Long accountNumber);
 
-    public ResponseEntity<Object> addNewAccount(AccountInformation accountInformation, Long customerNumber);
-
-    public ResponseEntity<Object> transferDetails(TransferDetails transferDetails, Long customerNumber);
-
-    public List<TransactionDetails> findTransactionsByAccountNumber(Long accountNumber);
 }

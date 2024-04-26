@@ -12,7 +12,7 @@ public class ApplicationConstant {
     public static final String USER_NOT_FOUND ="User not existed";
     public static final String CUSTMER_UPT ="Customer details has been succesfuly updated";
     public static final String DLT_CUST ="Customer has been deleted successfully ";
-
+    public static final String ACC_NOT_FND ="Account id is not found ";
 
     public static final String BAD_REQUEST ="600_BR";
 

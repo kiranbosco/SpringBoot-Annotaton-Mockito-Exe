@@ -1,17 +1,10 @@
 package com.purinis.BankingTransaction.service;
-
-import com.purinis.BankingTransaction.domain.AccountInformation;
 import com.purinis.BankingTransaction.domain.CustomerDetails;
-import com.purinis.BankingTransaction.domain.TransactionDetails;
-import com.purinis.BankingTransaction.domain.TransferDetails;
 import com.purinis.BankingTransaction.exception.BankingRuntimeException;
 import com.purinis.BankingTransaction.model.Address;
 import com.purinis.BankingTransaction.model.Contact;
 import com.purinis.BankingTransaction.model.Customer;
-import com.purinis.BankingTransaction.repository.AccountRepository;
-import com.purinis.BankingTransaction.repository.CustomerAccountXRefRepository;
 import com.purinis.BankingTransaction.repository.CustomerRepository;
-import com.purinis.BankingTransaction.repository.TransactionRepository;
 import com.purinis.BankingTransaction.utils.ApplicationConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,25 +23,14 @@ public class BankingServiceImpl implements CustomerService {
 
     private CustomerRepository customerRepository;
 
-    private AccountRepository accountRepository;
-
-    private TransactionRepository transactionRepository;
-
-    private CustomerAccountXRefRepository custAccXRefRepository;
 
     private BankingServiceHelper bankingServiceHelper;
 
     @Autowired
     public BankingServiceImpl(CustomerRepository repository,
-                              AccountRepository accountRepository,
-                              TransactionRepository transactionRepository,
-                              CustomerAccountXRefRepository customerAccountXRefRepository,
                               BankingServiceHelper bankingServiceHelper) {
         this.customerRepository=repository;
         this.bankingServiceHelper=bankingServiceHelper;
-        this.custAccXRefRepository=custAccXRefRepository;
-        this.transactionRepository=transactionRepository;
-        accountRepository=accountRepository;
 
     }
     @Override
@@ -146,23 +128,4 @@ public class BankingServiceImpl implements CustomerService {
         return ResponseEntity.status(HttpStatus.OK).body(ApplicationConstant.DLT_CUST);
     }
 
-    @Override
-    public ResponseEntity<Object> findByAccountNumber(Long accountNumber) {
-        return null;
-    }
-
-    @Override
-    public ResponseEntity<Object> addNewAccount(AccountInformation accountInformation, Long customerNumber) {
-        return null;
-    }
-
-    @Override
-    public ResponseEntity<Object> transferDetails(TransferDetails transferDetails, Long customerNumber) {
-        return null;
-    }
-
-    @Override
-    public List<TransactionDetails> findTransactionsByAccountNumber(Long accountNumber) {
-        return List.of();
-    }
 }
