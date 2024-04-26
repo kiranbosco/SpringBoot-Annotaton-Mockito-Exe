@@ -22,15 +22,18 @@ public interface CustomerController {
     @RequestMapping(value = "/{customerNumber}",
             produces = {"application/json"},
             method = RequestMethod.GET)
-    public ResponseEntity<CustomerDetails> findCustomerNumber(@PathVariable("customerNumber") Long customerNumber);
+    public CustomerDetails findCustomerNumber(@PathVariable("customerNumber") Long customerNumber);
 
     @RequestMapping(value = "/{customerNumber}",
             produces = {"application/json"},
             consumes = {"application/json"},
             method = RequestMethod.PUT)
     public ResponseEntity<Object> updateCustomerDetails(@PathVariable ("customerNumber")Long customerNumber,
-                                                                 @RequestBody CustomerDetails customerDetails);
+                                                        @RequestBody CustomerDetails customerDetails);
 
-
+    @RequestMapping(value =  "/{customerNumber}",
+            produces = {"application/json"},
+            method = RequestMethod.DELETE)
+    public ResponseEntity<Object> deleteCustomerData(@PathVariable("customerNumber") Long customerNumber);
 
 }

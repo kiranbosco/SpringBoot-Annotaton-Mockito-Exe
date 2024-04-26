@@ -134,7 +134,16 @@ public class BankingServiceImpl implements CustomerService {
 
     @Override
     public ResponseEntity<Object> deleteCustomer(Long customerNumber) {
-        return null;
+        //find the customer Number is available or not
+        Optional<Customer> customerOptional = this.customerRepository.findByCustomerNumber(customerNumber);
+        if(!customerOptional.isPresent()){
+            throw new BankingRuntimeException(ApplicationConstant.ACC_NOT_FOUND);
+        }
+        else {
+            Customer deleteCustomerData = customerOptional.get();
+            this.customerRepository.delete(deleteCustomerData);
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(ApplicationConstant.DLT_CUST);
     }
 
     @Override

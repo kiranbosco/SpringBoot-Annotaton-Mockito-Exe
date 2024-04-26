@@ -3,7 +3,6 @@ package com.purinis.BankingTransaction.controller;
 import com.purinis.BankingTransaction.domain.CustomerDetails;
 import com.purinis.BankingTransaction.service.BankingServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,12 +31,17 @@ public class CustomerControllerImpl  implements CustomerController {
     }
 
     @Override
-    public ResponseEntity<CustomerDetails> findCustomerNumber(Long customerNumber) {
-        return new ResponseEntity<>(this.bankingService.findByCustomerNumber(customerNumber), HttpStatus.OK);
+    public CustomerDetails findCustomerNumber(Long customerNumber) {
+        return bankingService.findByCustomerNumber(customerNumber);
     }
 
     @Override
     public ResponseEntity<Object> updateCustomerDetails(Long customerNumber, CustomerDetails customerDetails) {
-        return new ResponseEntity<>(this.bankingService.updateCustomer(customerDetails,customerNumber),HttpStatus.OK);
+        return bankingService.updateCustomer(customerDetails,customerNumber);
+    }
+
+    @Override
+    public ResponseEntity<Object> deleteCustomerData(Long customerNumber) {
+        return bankingService.deleteCustomer(customerNumber);
     }
 }
