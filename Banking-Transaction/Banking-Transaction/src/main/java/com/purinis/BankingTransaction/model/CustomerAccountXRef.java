@@ -14,7 +14,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomerAccountXRef {
-
+    //customer account number and account number
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="CUST_ACC_XREF_ID")

@@ -2,6 +2,7 @@ package com.purinis.BankingTransaction.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,6 +28,7 @@ public class Customer {
 
     private String middleName;
 
+    @NotNull(message = "Customer number should required to create the customer account..!")
     private Long customerNumber;
 
     private String status;

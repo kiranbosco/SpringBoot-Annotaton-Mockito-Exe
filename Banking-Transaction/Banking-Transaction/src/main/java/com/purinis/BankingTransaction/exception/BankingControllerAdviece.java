@@ -2,6 +2,7 @@ package com.purinis.BankingTransaction.exception;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
+import org.hibernate.NonUniqueResultException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
@@ -38,5 +40,16 @@ public class BankingControllerAdviece {
                 bankingRuntimeException.getCause());
         return new ResponseEntity<>(bankException,HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ResponseEntity<Object> handlerUserExistedException(BankingRuntimeException bankingRuntimeException){
+        BankException bankException = new BankException(bankingRuntimeException.getMessage(),
+                HttpStatus.INTERNAL_SERVER_ERROR,
+                bankingRuntimeException.getCause());
+
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
 }
 

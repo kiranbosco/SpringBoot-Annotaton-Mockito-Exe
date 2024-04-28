@@ -1,6 +1,7 @@
 package com.purinis.BankingTransaction.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,6 +22,7 @@ public class Account {
     @Column(name="ACCT_ID")
     private UUID id;
 
+    @NotNull(message = "Account number should not be null..!")
     private Long accountNumber;
 
     @OneToOne(cascade=CascadeType.ALL)
@@ -30,6 +32,7 @@ public class Account {
 
     private String accountType;
 
+    @NotNull(message = "Minimum balance 500 rupees required to open the account..!")
     private Double accountBalance;
 
     @Temporal(TemporalType.TIME)
