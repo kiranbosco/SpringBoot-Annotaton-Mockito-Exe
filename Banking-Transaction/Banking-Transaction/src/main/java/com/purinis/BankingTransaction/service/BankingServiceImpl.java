@@ -82,7 +82,8 @@ public class BankingServiceImpl implements CustomerService {
             //update
             if(Optional.ofNullable(manageCustomerEntity.getContactDetails()).isPresent()){
                 Contact mangaeContact = unmanageCustomerEntity.getContactDetails();
-                if(mangaeContact!=null){mangaeContact.setEmailId(mangaeContact.getEmailId());
+                if(mangaeContact!=null){
+                  //  mangaeContact.setEmailId(mangaeContact.getEmailId());
                     mangaeContact.setEmailId(manageCustomerEntity.getContactDetails().getEmailId());
                     mangaeContact.setHomePhone(manageCustomerEntity.getContactDetails().getHomePhone());
                     mangaeContact.setHomePhone(manageCustomerEntity.getContactDetails().getHomePhone());
