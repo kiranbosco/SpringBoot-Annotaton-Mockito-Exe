@@ -1,7 +1,9 @@
 package com.purinis.BankingTransaction.controller;
 
+import com.purinis.BankingTransaction.config.ConfigTest;
 import com.purinis.BankingTransaction.domain.CustomerDetails;
 import com.purinis.BankingTransaction.service.BankingServiceImpl;
+import com.purinis.BankingTransaction.utils.TestBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -15,6 +17,8 @@ public class CustomerControllerImpl  implements CustomerController {
     @Autowired
     private BankingServiceImpl bankingService;
 
+    @Autowired
+    private TestBean testBean;
 
     public CustomerControllerImpl(BankingServiceImpl bankingService) {
         this.bankingService = bankingService;
@@ -22,6 +26,7 @@ public class CustomerControllerImpl  implements CustomerController {
 
     @Override
     public List<CustomerDetails> findAllCustomers() {
+        testBean.methodInfo();
         return this.bankingService.findAll();
     }
 
