@@ -1,6 +1,5 @@
 package com.purinis.BankingTransaction.controller;
 
-import com.purinis.BankingTransaction.config.ConfigTest;
 import com.purinis.BankingTransaction.domain.CustomerDetails;
 import com.purinis.BankingTransaction.service.BankingServiceImpl;
 import com.purinis.BankingTransaction.utils.TestBean;
