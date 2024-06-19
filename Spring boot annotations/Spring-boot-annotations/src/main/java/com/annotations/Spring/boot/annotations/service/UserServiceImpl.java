@@ -4,11 +4,11 @@ import com.annotations.Spring.boot.annotations.beanConfig.BeanTest;
 import com.annotations.Spring.boot.annotations.model.Users;
 import com.annotations.Spring.boot.annotations.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+
+import java.util.Optional;
 
 @Service
 @Primary
@@ -27,8 +27,16 @@ public class UserServiceImpl implements Userservice {
 
     public Iterable<Users> listOfusers(){
         beanTest.createBeanTest();
-       return this.userRepo.findAll();
+        return this.userRepo.findAll();
     }
+
+    public Object checkNull(Object obj) {
+        if ( obj != null ) {
+            return obj;
+        }
+        return null;
+    }
+
 }
 
 
