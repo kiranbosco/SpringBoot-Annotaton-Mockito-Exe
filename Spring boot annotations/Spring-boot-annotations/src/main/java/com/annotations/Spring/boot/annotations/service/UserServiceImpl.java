@@ -7,9 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-
-import java.util.Optional;
-
 @Service
 @Primary
 public class UserServiceImpl implements Userservice {
@@ -36,6 +33,8 @@ public class UserServiceImpl implements Userservice {
         }
         return null;
     }
+
+
 
 }
 

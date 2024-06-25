@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Banking-Transaction.iml" filepath="$PROJECT_DIR$/.idea/Banking-Transaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Banking-Transaction.Banking-Transaction.iml" filepath="$PROJECT_DIR$/.idea/modules/Banking-Transaction.Banking-Transaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Banking-Transaction.Banking-Transaction.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Banking-Transaction.Banking-Transaction.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Banking-Transaction.Banking-Transaction.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Banking-Transaction.Banking-Transaction.test.iml" />
     </modules>
   </component>
 </project>
