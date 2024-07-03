@@ -5,7 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/Banking-Transaction.iml" filepath="$PROJECT_DIR$/.idea/Banking-Transaction.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Banking-Transaction.Banking-Transaction.iml" filepath="$PROJECT_DIR$/.idea/modules/Banking-Transaction.Banking-Transaction.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Banking-Transaction.Banking-Transaction.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Banking-Transaction.Banking-Transaction.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Banking-Transaction.Banking-Transaction.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Banking-Transaction.Banking-Transaction.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Banking-Transaction.Banking-Transaction.main~1.iml" filepath="$PROJECT_DIR$/.idea/modules/Banking-Transaction.Banking-Transaction.main~1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Banking-Transaction.Banking-Transaction.test~1.iml" filepath="$PROJECT_DIR$/.idea/modules/Banking-Transaction.Banking-Transaction.test~1.iml" />
     </modules>
   </component>
 </project>

@@ -6,8 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
+
 public class BankException {
 
     private  final String message;
@@ -15,4 +17,9 @@ public class BankException {
     private final  Throwable throwable;
 
 
+    public BankException(String message, HttpStatus httpStatus, Throwable throwable) {
+        this.message = message;
+        this.httpStatus = httpStatus;
+        this.throwable = throwable;
+    }
 }
