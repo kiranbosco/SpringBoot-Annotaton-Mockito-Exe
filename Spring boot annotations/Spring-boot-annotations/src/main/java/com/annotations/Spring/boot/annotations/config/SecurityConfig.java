@@ -1,3 +1,4 @@
+/*
 package com.annotations.Spring.boot.annotations.config;
 
 import org.springframework.context.annotation.Bean;
@@ -46,3 +47,4 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
+*/
